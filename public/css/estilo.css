@@ -1,6 +1,5 @@
 @CHARSET "UTF-8";
 /* CSS Criado por PV */
-<<<<<<< HEAD
 /* Necessário zerar os browsers */
 
 /* CRIANDO REGRAS GLOBAIS */
@@ -42,45 +41,12 @@ ul{list-style-type:none;}
 #rodape{
 	text-align:center;
 }	
-=======
+
 
 /* Necessário zerar os browsers */
 
 
 
-/* CRIANDO REGRAS GLOBAIS */
-body{padding:0px; margin:0px; background:#2f383f; color:#FFF; font:10px/14px Tahoma, sans-serif;}
-div, p, ul, h2, h3, h4, img{padding:0px; margin:0px;}
-ul{list-style-type:none;}
 
 .clear {clear: both; margin: 0px}
 .spacer{font-size:0; line-height:10px; clear:both;}
-
-
-p {
-	font: 10px/14px Tahoma, sans-serif;
-	color: black;
-	font-weight: bold;
-}
-
-/* TOPO */
-
-#top{ 
-width:747px; 
-height:91px; 
-position:relative; background:url(../images/b_top.jpg) 0 0 no-repeat; 
-margin: 0 auto;
-}
-
-
-#menu-principal li{
-	float: left;
-	width: 130px;
-	font-size: 14px;
-	
-}
-
-#autenticacao{
-	height: 165px;
-}
->>>>>>> 0777b40a95fe177dfe3141f189777c7f75c89ea4
