@@ -4,63 +4,55 @@ class UsuarioController extends Zend_Controller_Action{
 	private $request;
 	private $dao;
 	private $usu;
-
-	public function verificaapelidoAction(){
+	
+	
+	public function init(){
 		$this->request = $this->getRequest();
-		$apelido = $this->request->getParam("apelido");
-		Zend_Loader::loadClass('UsuarioDAO',APPLICATION_PATH.'/models/DAOs');
-		$this->dao = new UsuarioDAO();
+	}	
+			
+	public function testeAction(){		
+			
+		if(Zend_Auth::getInstance()->hasIdentity()){
+			echo 'tem id';
+		}else{
+			echo 'nao tem id';			
+		}		
+		exit;
+	}
+
+	public function verificaapelidoAction(){		
+		$apelido = $this->request->getParam("apelido");		
+		$this->dao = new Application_Model_Dao_Usuario();
 		$this->usu = $this->dao->buscarPorApelido($apelido);
 		if($this->usu == null){
 			echo 1;
 		}else{
-			echo 0;
+			echo "Usuário já cadastro";
 		}
 		exit;
 	}
 
-	public function verificaemailAction(){
-		$this->request = $this->getRequest();
-		$apelido = $this->request->getParam("email");
-		Zend_Loader::loadClass('UsuarioDAO',APPLICATION_PATH.'/models/DAOs');
-		$this->dao = new UsuarioDAO();
+	public function verificaemailAction(){		
+		$apelido = $this->request->getParam("email");		
+		$this->dao = new Application_Model_Dao_Usuario();
 		$this->usu = $this->dao->buscarPorEmail($apelido);
 		if($this->usu == null){
 			echo 1;
 		}else{
-			echo 0;
+			echo "Email já cadastrado";
 		}
 		exit;
 	}
 
-	public function autenticarAction(){
-
-		$this->request = $this->getRequest();
-		$apelido = $this->request->getParam("apelido");
-		$senha = $this->request->getParam("senha");
-
-		Zend_Loader::loadClass('UsuarioDAO',APPLICATION_PATH.'/models/DAOs');
-		$this->dao = new UsuarioDAO();
+	public function autenticarAction(){		
+		$apelido = $this->request->getParam("usuario");
+		$senha = $this->request->getParam("senha");		
+		$this->dao = new Application_Model_Dao_Usuario();
 		$this->usu = $this->dao->buscarPorApelido($apelido);
 		if($this->usu != null ){
 			if($this->usu->getSenha() == $senha){
-				//autenticou
-				
-				/*SÓ EXECUTA O ZEND_AUTH QUANDO O USUÁRIO JÁ FOI VERIFICADO NO BD*/
-				$aut = new Zend_Auth_Adapter_DbTable($this->_adapter);
-				$aut->setTableName("usu_usuario")
-					->setIdentityColumn("usu_apelido")
-					->setCredentialColumn("usu_senha");
-
-				$aut->setIdentity($this->usu->getApelido())->setCredential($this->usu->getSenha());
-				$result = $aut->authenticate();
-				if(!$result->isValid()){
-					foreach ($result->getMessages() as $message){
-						echo "$message\n";
-					}
-				}else{
-					echo 1;
-				}				
+				//autenticou				                					
+				echo 1;								
 			}else{
 				echo "Senha incorreta";
 			}
@@ -68,6 +60,5 @@ class UsuarioController extends Zend_Controller_Action{
 			echo "Conta não encontrada";
 		}
 		exit;
-
 	}
 }

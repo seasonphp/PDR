@@ -50,7 +50,7 @@ $(document).ready(function(){
 			$("#msgFormNovoPendrive").text("Aguarde enquanto  seu Pendrive é criado...").show();
 			var retorno = ajax.slack($("#formNovoPendrive"));
 			if(retorno == 1){
-				window.location = "http://locahost/public/pendrive/restrito";
+				window.location = new Helper().baseUrl()+"/pendrive/privado";
 			}else{
 				$("#msgFormNovoPendrive").text("Não foi possível realizar a conclusão da requisição, por favor tente mais tarde");
 			}
@@ -74,6 +74,7 @@ function checkApelido(input){
 			$("#criar").show();
 		}else{
 			$("#loadApelido").attr("src","http://localhost/public/imagens/cross.png");
+			$("#msgApelido").text(retorno).show();
 			
 		}
 	}
@@ -93,10 +94,11 @@ function checkEmail(input){
 			$("#criar").show();
 		}else{
 			$("#loadEmail").attr("src","http://localhost/public/imagens/cross.png");
-			
+			$("#msgEmail").text(retorno).show();
 		}
 	}	
 }
 function limpaImg(input){
 	$(input).next().hide();
+	$(input).next().next().hide();
 }

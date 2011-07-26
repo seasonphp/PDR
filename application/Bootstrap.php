@@ -11,7 +11,13 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap{
 		$view->doctype('XHTML1_STRICT');		 
 		 
 	}
-
+	
+	
+	protected function _initAcl(){
+	    $aclSetup = new Plugin_Acl();
+	}
+	
+	
 
 	/**
 	 * Função faz a conexão com o banco de dados e registra a variável $db para

@@ -6,22 +6,20 @@
 	<div class="span-5">
 	<div class="span-5 accord">
 		<h3><a href="#">PAINEL DE ACESSO</a></h3>
-		<div>
-			<p>	
-			<form name="acesso" action="">
+		<div>			
 			<div class="span-4">
-			<input name="usuario" type="text" />
+			Usuário
+			<input name="usuario" type="text" id="usuario"/>
 			<br>
-			<input name="senha" type="password" />
+			Senha
+			<input name="senha" type="password" id="senha"/>
+			<div id="msgAutenticacao" class="hide erro"></div>
 			</div>
-			<button class="botao">Entrar</button>
+			<button class="botao" onclick="autenticar()">Entrar</button>
 			<br><br>
 			<a href="#">Cadastre-se </a>
 			<br>
-			<a href="#"> Esqueceu a senha </a>
-			
-			</form>
-			</p>
+			<a href="#"> Esqueceu a senha </a>		
 		</div>			
 	</div>	
 	<br><br>
@@ -181,6 +179,7 @@
 $this->headScript()->appendFile($this->baseUrl().'/js/slider/jquery-easing-1.3.pack.js');
 $this->headScript()->appendFile($this->baseUrl().'/js/slider/jquery-easing-compatibility.1.2.pack.js');
 $this->headScript()->appendFile($this->baseUrl().'/js/slider/coda-slider.1.1.1.pack.js');
+$this->headScript()->appendFile($this->baseUrl().'/js/views/index/index.js');
 
 ?>
 

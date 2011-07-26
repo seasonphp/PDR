@@ -27,11 +27,13 @@
 							<div class="span-15 last">
 								<input type="text" name="email" id="email" size="50" onBlur="checkEmail(this)" onFocus="limpaImg(this)"></input>
 								<img id="loadEmail" class="hide" src="<?php echo $this->baseUrl();?>/imagens/mini-loader.gif"/>
+								<div id="msgEmail" class="hide erro"></div>
 							</div>
 							<div class="span-3 pretop-5">Apelido</div>
 							<div class="span-15 last">
 								<input type="text" name="apelido" id="apelido" onBlur="checkApelido(this)" onFocus="limpaImg(this)"></input>
 								<img id="loadApelido" class="hide" src="<?php echo $this->baseUrl();?>/imagens/mini-loader.gif"/>
+								<div id="msgApelido" class="hide erro"></div>
 							</div>
 							<div class="span-3 pretop-5">Senha</div>
 							<div class="span-15 last">
