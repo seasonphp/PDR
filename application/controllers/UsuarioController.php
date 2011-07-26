@@ -8,6 +8,7 @@ class UsuarioController extends Zend_Controller_Action{
 	
 	public function init(){
 		$this->request = $this->getRequest();
+		
 	}	
 			
 	public function testeAction(){		
