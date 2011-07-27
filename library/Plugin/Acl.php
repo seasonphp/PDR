@@ -39,7 +39,7 @@ class Plugin_Acl{
                    ->allow( 'visitante', 'error', 'error' )
                    ->allow( 'visitante', 'usuario', array('teste','verificaemail','verificaapelido'))
                    ->allow( 'visitante', 'auth', array('autenticar','terminarsessao') )
-                   ->allow( 'visitante', 'pendrive', array('cadastro','novo'));        
+                   ->allow( 'visitante', 'pendrive', array('cadastro','novo',''));        
         $this->_acl->allow('membro','pendrive','privado')
         			->allow('membro','index','teste');
     }
